@@ -37,6 +37,10 @@ public class App {
         FamilyTree familyTree2 = (FamilyTree) readObject(
                 "C:\\Users\\HP\\Desktop\\JavaProjects\\FamilyTree\\src\\file_familyTree.txt");
         System.out.println(familyTree2);
+        System.out.println();
+        for(Person p: familyTree2){
+            System.out.println(p);
+        }
 
     }
 

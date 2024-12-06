@@ -1,8 +1,9 @@
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
-public class FamilyTree implements Serializable{
+public class FamilyTree implements Serializable,Iterable<Person>{
 
 
     private List<Person> tree;
@@ -61,8 +62,23 @@ public class FamilyTree implements Serializable{
     }
 
 
+    @Override
+    public Iterator<Person> iterator() {
+
+        return new MyIterator();
+    }
 
 
+    private class MyIterator implements Iterator<Person>{
+        int i ;
+        @Override
+        public boolean hasNext() {
+            return i < tree.size();
+        }
 
-
+        @Override
+        public Person next() {
+            return tree.get(i++);
+        }
+    }
 }
